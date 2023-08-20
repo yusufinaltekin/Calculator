@@ -1,0 +1,112 @@
+:root {
+    --borderColor: #eeeeee;
+    --numberButton: #393E46;
+    --otherButton: #00ADB5;
+    --background: #222831;
+    --hoverNumber:#202020;
+    --hoverOther:#008088;
+}   
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--borderColor);
+}
+
+.wrapper .numbers button:active {
+    background-color: var(--hoverNumber);
+
+}
+.transactions button:active{
+    background-color: var(--hoverOther);
+}
+.wrapper {
+    width: min-content;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--borderColor);
+    padding: 10px;
+}
+
+.wrapper .result {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    text-align: right;
+    font-family: 'Orbitron', sans-serif;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+
+}
+
+.wrapper .buttons {
+    position: relative;
+    max-width: max-content;
+    border: 1px solid var(--borderColor);
+}
+
+.wrapper .numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 70px);
+    grid-template-rows: repeat(4, 70px);
+}
+
+.wrapper .numbers button {
+    background: var(--numberButton);
+    color: #fff;
+}
+
+.transactions.section-1 {
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+}
+
+.transactions.section-2 {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    display: grid;
+    grid-template-rows: repeat(4, 70px);
+    max-width: max-content;
+}
+
+.transactions.section-2 button[value="="] {
+    grid-row: 3/5;
+    height: 100%;
+}
+
+.transactions button {
+    min-width: 70px;
+    min-height: 70px;
+    background-color: var(--otherButton);
+    color: #fff;
+}
+
+.wrapper .numbers button[value="0"] {
+    grid-column: 1/3;
+
+}
+
+.wrapper .numbers button[value="."] {
+    grid-column: 3/4;
+    grid-row: 4/5;
+
+}
